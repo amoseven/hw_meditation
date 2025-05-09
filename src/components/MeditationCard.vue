@@ -1,22 +1,19 @@
 <script setup lang="ts">
-type CardProps = {
-  title: string
-  text: string
-  timer: number
-}
 
-const { title, text, timer } = defineProps<CardProps>()
+import type { Meditation } from '@/interfaces.ts'
+
+const { title, duration_min, description } = defineProps<Meditation>()
 </script>
 
 <template>
   <div class="card">
     <div class="card-content">
       <h3>{{ title }}</h3>
-      <p>{{ text }}</p>
+      <p>{{ description }}</p>
     </div>
     <div class="card-footer">
       <button>Начать</button>
-      <p>{{ timer }} мин</p>
+      <p>{{ duration_min }} мин</p>
     </div>
   </div>
 </template>
