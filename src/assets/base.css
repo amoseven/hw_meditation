@@ -1,0 +1,21 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --color-bg: #253334;
+  --color-bg-panel: #F7F3F0;
+  --color-text: rgba(255, 255, 255, 0.9);
+  --font-name-primary: "Alegreya", sans-serif;
+  --font-name-secondary: "Alegreya Sans", sans-serif;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-bg);
+
+}
