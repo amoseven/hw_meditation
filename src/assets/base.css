@@ -3,6 +3,7 @@
   --color-bg: #253334;
   --color-bg-panel: #F7F3F0;
   --color-text: rgba(255, 255, 255, 0.9);
+  --color-text-inverted: #000;
   --font-name-primary: "Alegreya", sans-serif;
   --font-name-secondary: "Alegreya Sans", sans-serif;
 }
@@ -11,6 +12,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: var(--font-name-primary),sans-serif;;
 }
 
 body {

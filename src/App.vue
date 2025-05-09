@@ -1,13 +1,40 @@
 <script setup lang="ts">
 import IconLogo from '@/components/icons/IconLogo.vue'
-import IconIn1 from '@/components/icons/IconIn1.vue'
-import IconPlay from '@/components/icons/IconPlay.vue'
-import IconChart from '@/components/icons/IconChart.vue'
-import IconExit from '@/components/icons/IconExit.vue'
-import IconIn2 from '@/components/icons/IconIn2.vue'
-import IconIn3 from '@/components/icons/IconIn3.vue'
-import IconIn4 from '@/components/icons/IconIn4.vue'
-import IconPanel from '@/components/IconPanel.vue'
+import ProfileInfo from '@/components/ProfileInfo.vue'
+import MainNavigation from '@/components/MainNavigation.vue'
+import MeditationCard from '@/components/MeditationCard.vue'
+import { ref } from 'vue'
+
+const meditationCards = ref([
+  {
+    id: 1,
+    title: 'Короткая',
+    text: 'Базовая медитация на 5 минут для успокоения сознания',
+    timer: 5,
+    url: '',
+  },
+  {
+    id: 2,
+    title: 'Ежедневная',
+    text: 'Стандартная медитация для ежедневной осознанности',
+    timer: 10,
+    url: '',
+  },
+  {
+    id: 3,
+    title: 'Для опытных',
+    text: 'Полноценная 15-ти минутная сессия для тех, кто хочет очистить сознание',
+    timer: 15,
+    url: '',
+  },
+  {
+    id: 4,
+    title: 'Глубокое погружение',
+    text: 'Большая медитация для погружения в себя и снятия стресса',
+    timer: 30,
+    url: '',
+  },
+])
 </script>
 
 <template>
@@ -15,48 +42,23 @@ import IconPanel from '@/components/IconPanel.vue'
     <header>
       <div class="header">
         <IconLogo />
-        <nav style="display: flex; align-items: center; gap: 55px">
-          <div class="menu-item">
-            <IconPlay />
-            Медитация
-          </div>
-          <div class="menu-item" style="border-left: 1px; border-right: 1px; border-color: #3a5051">
-            <IconChart />
-            Статистика
-          </div>
-          <div class="menu-item">
-            <IconExit />
-            Выход
-          </div>
-        </nav>
+        <MainNavigation />
       </div>
     </header>
 
-    <main>
-      <div class="profile-info">
-        <img
-          src="/avatar.png"
-          alt=""
-          style="width: 129px; height: 129px; border-radius: 100%; background-size: contain"
+    <main
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      "
+    >
+      <ProfileInfo />
+      <div class="cards-list">
+        <MeditationCard v-for="card in meditationCards" :key="card.id" v-bind="card"
         />
-        <h2>Добро пожаловать, Наталья!</h2>
-        <p class="text-secondary">Как вы сегодня себя чувствуете?</p>
-        <div class="icon-list">
-          <IconPanel name="Спокойно">
-            <IconIn1 />
-          </IconPanel>
-          <IconPanel name="Расслабленно">
-            <IconIn2 />
-          </IconPanel>
-          <IconPanel name="Фокусировано">
-            <IconIn3 />
-          </IconPanel>
-          <IconPanel name="Тревожно">
-            <IconIn4 />
-          </IconPanel>
-        </div>
       </div>
-      <div class="cards-list"></div>
     </main>
   </div>
 </template>
@@ -65,16 +67,6 @@ import IconPanel from '@/components/IconPanel.vue'
 .container {
   width: 1280px;
   margin: 5px auto 0 auto;
-  border: 1px solid #fff;
-}
-
-.menu-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  padding-top: 20px;
 }
 
 .header {
@@ -82,19 +74,14 @@ import IconPanel from '@/components/IconPanel.vue'
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  padding: 0;
   margin-bottom: 50px;
 }
 
-.text-secondary {
-  font-family: var(--font-name-secondary);
-}
-
-.icon-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 5px;
-  max-width: 325px;
+.cards-list {
+  width: 700px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 </style>
