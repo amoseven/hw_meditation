@@ -3,7 +3,7 @@ import IconLogo from '@/components/icons/IconLogo.vue'
 import ProfileInfo from '@/components/ProfileInfo.vue'
 import MainNavigation from '@/components/MainNavigation.vue'
 import MeditationCard from '@/components/MeditationCard.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { useMeditationStore } from '@/stores/meditations.store.ts'
 
 const meditationStore = useMeditationStore();
