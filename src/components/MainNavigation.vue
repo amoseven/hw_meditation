@@ -38,8 +38,7 @@ nav {
 }
 
 .middle {
-  border-left: 1px;
-  border-right: 1px;
-  border-color: #3a5051;
+  border-left: 1px  solid #3a5051;
+  border-right: 1px solid #3a5051;
 }
 </style>

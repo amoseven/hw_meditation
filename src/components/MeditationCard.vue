@@ -3,7 +3,6 @@ type CardProps = {
   title: string
   text: string
   timer: number
-  url?: string
 }
 
 const { title, text, timer } = defineProps<CardProps>()

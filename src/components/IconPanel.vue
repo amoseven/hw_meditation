@@ -1,17 +1,24 @@
 <script setup lang="ts">
-const { name = 'Текст иконки' } = defineProps<{name: string}>()
+const { name = 'Текст иконки' } = defineProps<{ name: string }>()
 </script>
 
 <template>
-  <div style="display: flex;flex-direction: column; align-items: center; width: 100%">
+  <div class="panel-wrap">
     <div class="panel-logo">
       <slot />
     </div>
-    <p class="panel-text">{{ name}}</p>
+    <p class="panel-text">{{ name }}</p>
   </div>
 </template>
 
 <style scoped>
+.panel-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .panel-logo {
   display: flex;
   flex-direction: column;
@@ -24,8 +31,9 @@ const { name = 'Текст иконки' } = defineProps<{name: string}>()
   padding: 15px;
   margin-bottom: 10px;
 }
+
 .panel-text {
-  font-family: var(--font-name-secondary),sans-serif;
+  font-family: var(--font-name-secondary), sans-serif;
   font-size: 12px;
 }
 </style>

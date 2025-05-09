@@ -4,11 +4,7 @@ import ProfileIconsList from '@/components/ProfileIconsList.vue'
 
 <template>
   <div class="profile-info">
-    <img
-      src="/avatar.png"
-      alt=""
-      style="width: 129px; height: 129px; border-radius: 100%; background-size: contain"
-    />
+    <img src="/avatar.png" alt="" />
 
     <div class="profile-welcome">
       <h2>Добро пожаловать, Наталья!</h2>
@@ -28,10 +24,16 @@ import ProfileIconsList from '@/components/ProfileIconsList.vue'
   display: flex;
   flex-direction: column;
   gap: 45px;
+
+  img {
+    width: 129px;
+    height: 129px;
+    border-radius: 100%;
+    background-size: contain;
+  }
 }
 
 .profile-welcome {
-
   h2 {
     font-size: 30px;
     font-weight: 500;
@@ -39,10 +41,9 @@ import ProfileIconsList from '@/components/ProfileIconsList.vue'
   }
 
   .text-secondary {
-    font-family: var(--font-name-secondary),sans-serif;;
+    font-family: var(--font-name-secondary), sans-serif;
   }
 }
-
 
 .icon-list {
   display: flex;
