@@ -3,34 +3,14 @@ import IconLogo from '@/components/icons/IconLogo.vue'
 import ProfileInfo from '@/components/ProfileInfo.vue'
 import MainNavigation from '@/components/MainNavigation.vue'
 import MeditationCard from '@/components/MeditationCard.vue'
-import { ref } from 'vue'
+import { onMounted } from 'vue'
+import { useMeditationStore } from '@/stores/meditations.store.ts'
 
-const meditationCards = ref([
-  {
-    id: 1,
-    title: 'Короткая',
-    text: 'Базовая медитация на 5 минут для успокоения сознания',
-    timer: 5,
-  },
-  {
-    id: 2,
-    title: 'Ежедневная',
-    text: 'Стандартная медитация для ежедневной осознанности',
-    timer: 10,
-  },
-  {
-    id: 3,
-    title: 'Для опытных',
-    text: 'Полноценная 15-ти минутная сессия для тех, кто хочет очистить сознание',
-    timer: 15,
-  },
-  {
-    id: 4,
-    title: 'Глубокое погружение',
-    text: 'Большая медитация для погружения в себя и снятия стресса',
-    timer: 30,
-  },
-])
+const meditationStore = useMeditationStore();
+onMounted(() => {
+  meditationStore.fetchMeditations()
+})
+
 </script>
 
 <template>
@@ -45,7 +25,7 @@ const meditationCards = ref([
     <main>
       <ProfileInfo />
       <div class="cards-list">
-        <MeditationCard v-for="card in meditationCards" :key="card.id" v-bind="card"
+        <MeditationCard v-for="card in meditationStore.meditations" :key="card.ID" v-bind="card"
         />
       </div>
     </main>
